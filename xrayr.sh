@@ -2,18 +2,19 @@
 
 CONFIG_FILE="/etc/XrayR/config.yml"
 
-# 检查文件是否存在且非空
+# 检查配置文件是否存在且非空
 if [ -s "$CONFIG_FILE" ]; then
-    echo "配置文件存在且非空。"
+    echo "配置文件存在，继续操作。"
 else
-    echo "配置文件不存在或为空。"
+    echo "配置文件不存在或为空，操作终止。"
     exit 1
 fi
 
 # 询问NodeID
-read -p "请输入NodeID的值: " node_id
+echo -n "请输入NodeID的值: "
+read node_id
 
-# 将配置插入文件末尾
+# 插入配置到文件末尾
 echo "在文件末尾插入配置..."
 cat << EOF >> $CONFIG_FILE
   -
@@ -59,7 +60,7 @@ cat << EOF >> $CONFIG_FILE
           A: aaa
 EOF
 
-echo "配置已成功插入到$CONFIG_FILE。"
+echo "配置已成功插入。"
 
 # 重启XrayR服务
 echo "重启XrayR服务..."
