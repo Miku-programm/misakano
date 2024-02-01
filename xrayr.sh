@@ -2,7 +2,7 @@
 
 CONFIG_FILE="/etc/XrayR/config.yml"
 
-# 检查配置文件是否存在且非空
+# 检查配置文件是否存在且不为空
 if [ -s "$CONFIG_FILE" ]; then
     echo "配置文件存在，继续操作。"
 else
@@ -10,13 +10,18 @@ else
     exit 1
 fi
 
-# 询问NodeID
+# 请求输入NodeID
 echo -n "请输入NodeID的值: "
 read node_id
 
-# 插入配置到文件末尾
-echo "在文件末尾插入配置..."
-cat << EOF >> $CONFIG_FILE
+# 检查文件最后是否有换行符，没有则添加
+if [ "$(tail -c1 "$CONFIG_FILE" | wc -l)" -eq "0" ]; then
+    echo "" >> "$CONFIG_FILE"
+fi
+
+# 向配置文件末尾追加新的配置
+echo "正在向文件末尾追加配置..."
+cat << EOF >> "$CONFIG_FILE"
   -
     PanelType: "NewV2board" # Panel type: SSpanel, V2board, PMpanel, Proxypanel
     ApiConfig:
@@ -60,10 +65,10 @@ cat << EOF >> $CONFIG_FILE
           A: aaa
 EOF
 
-echo "配置已成功插入。"
+echo "配置已成功追加。"
 
 # 重启XrayR服务
-echo "重启XrayR服务..."
+echo "正在重启XrayR服务..."
 xrayr restart
 
 echo "操作完成。"
