@@ -1,10 +1,5 @@
 # 御坂妹妹们的Linux VPS工具箱
 
-为了方便妹妹们更好的管理他们的服务器，姐姐大人为您们写好了一键管理脚本了
-
-虽然目前我给你们一键管理的功能并不多，但是我有时间还是给你们准备的啦！
-
-![image.png](https://s2.loli.net/2021/12/26/WkiwbdExvnGAXCh.png)
 
 ## 使用方法
 
@@ -19,13 +14,6 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/Miku-programm/m
 ```bash
 bash MisakaToolbox.sh
 ```
-
-## 工具箱功能提议
-
-想要工具箱添加新的功能？有以下两种方式可以选择：
-1. 自行修改代码后提交 [Pull Request](https://github.com/Misaka-blog/MisakaLinuxToolbox/pulls)
-2. 提交一个 [Discussion](https://github.com/Misaka-blog/MisakaLinuxToolbox/discussions/20)  
-开发者们看到后会尽快添加~
 
 ## 来自姐姐大人的更新日志
 
@@ -144,26 +132,6 @@ DD系统：https://www.cxthhhhh.com/network-reinstall-system-modify
 更换系统语言：https://github.com/johnrosen1/vpstoolbox
 </details>  
 
-## 赞助我们
-
-点击页面上方的Sponsor按钮，赞助我们！  
-你的赞助会帮助工具箱变得更完善！
-
-## 交流群
-[Telegram](https://t.me/misakanetcn)
-
-BitBucket：https://bitbucket.org/misakano7545/misakalinuxtoolbox/
-## Stars 增长记录
-
-[![Stargazers over time](https://starchart.cc/Misaka-blog/MisakaLinuxToolbox.svg)](https://starchart.cc/Misaka-blog/MisakaLinuxToolbox)
-
-## Repo 统计
-![Alt](https://repobeats.axiom.co/api/embed/2512c745cf3ee94ad15c8e8ada474469e081f1c4.svg "Repobeats analytics image")
-
-## 贡献者
-<a href="https://github.com/Misaka-blog/MisakaLinuxToolbox/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Misaka-blog/MisakaLinuxToolbox" />
-</a>
 
 Made with [contrib.rocks](https://contrib.rocks).
 ## License
