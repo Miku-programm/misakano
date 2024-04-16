@@ -31,13 +31,13 @@ set -o pipefail
 CFKEY=jDPt_I6UwCPc4rStn3t5dNix0E8pQKqYEHVOcE70
 
 # Username, eg: user@example.com
-CFUSER=miku.work.wei@gmail.com
+CFUSER=miku.work@gmail.com
 
 # Zone name, eg: example.com
 CFZONE_NAME=redreimu.app
 
 # Hostname to update, eg: homeserver.example.com
-CFRECORD_NAME=hkt.redreimu.app
+CFRECORD_NAME=
 # Record type, A(IPv4)|AAAA(IPv6), default IPv4
 CFRECORD_TYPE=A
 
