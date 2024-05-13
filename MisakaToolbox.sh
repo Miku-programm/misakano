@@ -362,13 +362,13 @@ menu1(){
     read -rp " 请输入选项 [0-13]:" menuInput
     case $menuInput in
         1) open_ports ;;
-        2) wget -N --no-check-certificate https://raw.githubusercontents.com/Misaka-blog/rootLogin/master/root.sh && bash root.sh ;;
+        2) wget -N --no-check-certificate https://raw.githubusercontent.com/Miku-programm/misakano/main/root.sh && bash root.sh ;;
         3) wget -N --no-check-certificate https://raw.githubusercontents.com/Misaka-blog/screenManager/master/screen.sh && bash screen.sh ;;
         4) bbr_script ;;
         5) v6_dns64 ;;
         6) warp_script ;;
         7) curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun ;;
-        8) wget -N --no-check-certificate https://raw.githubusercontents.com/Misaka-blog/acme-1key/master/acme1key.sh && bash acme1key.sh ;;
+        8) wget -N --no-check-certificate https://raw.githubusercontent.com/Miku-programm/misakano/main/acme1key.sh ;;
         9) wget -N --no-check-certificate https://raw.githubusercontents.com/Misaka-blog/argo-tunnel-script/master/argo.sh && bash argo.sh ;;
         10) wget -N --no-check-certificate https://raw.githubusercontents.com/Misaka-blog/Ngrok-1key/master/ngrok.sh && bash ngrok.sh ;;
         11) bash <(curl -sSL https://cdn.jsdelivr.net/gh/SuperManito/LinuxMirrors@main/ChangeMirrors.sh) ;;
