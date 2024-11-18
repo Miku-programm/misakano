@@ -42,7 +42,7 @@ download_and_copy() {
     # 下载文件并覆盖
     for FILE_URL in "$FILE1" "$FILE2" "$FILE3"; do
         FILE_NAME=$(basename "$FILE_URL" | cut -d'?' -f1) # 去掉 URL 参数
-        wget --no-check-certificate -q "$FILE_URL" -O "$target_dir/$FILE_NAME"
+        curl -sSL "$FILE_URL" -o "$target_dir/$FILE_NAME"
         if [ $? -ne 0 ]; then
             echo "下载失败: $FILE_NAME"
             exit 1
