@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # 定义要下载的文件 URLs
-FILE1="https://raw.githubusercontent.com/Miku-programm/misakano/refs/heads/main/custom_inbound.json"
-FILE2="https://raw.githubusercontent.com/Miku-programm/misakano/refs/heads/main/custom_outbound.json"
-FILE3="https://raw.githubusercontent.com/Miku-programm/misakano/refs/heads/main/route.json"
+FILE1="https://raw.githubusercontent.com/Miku-programm/misakano/refs/heads/main/custom_inbound.json?token=GHSAT0AAAAAAC2BWW3ZFNJIWY4U2P6CK6OIZZ24SRA"
+FILE2="https://raw.githubusercontent.com/Miku-programm/misakano/refs/heads/main/custom_outbound.json?token=GHSAT0AAAAAAC2BWW3YOS52OMWQPYQA727YZZ24SSQ"
+FILE3="https://raw.githubusercontent.com/Miku-programm/misakano/refs/heads/main/route.json?token=GHSAT0AAAAAAC2BWW3Y73ACNQSJMH7DV7F4ZZ24S4Q"
 
 # 定义要下载的文件名
 FILES=("custom_inbound.json" "custom_outbound.json" "route.json")
