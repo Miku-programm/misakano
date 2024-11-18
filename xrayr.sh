@@ -26,7 +26,7 @@ cat << EOF >> "$CONFIG_FILE"
     PanelType: "NewV2board" # Panel type: SSpanel, V2board, PMpanel, Proxypanel
     ApiConfig:
       DisableCustomConfig: true
-      ApiHost: "https://21e2bb13660e0d66e053012819acfd9d.xunxingjiasuqi.top"
+      ApiHost: "https://koumakan.quickline.top/"
       ApiKey: "703eff19-26d3-45e2-9834-bbcd5f3cdb2b"
       NodeID:$node_id
       NodeType: Shadowsocks # Node type: V2ray, Trojan, Shadowsocks, Shadowsocks-Plugin
