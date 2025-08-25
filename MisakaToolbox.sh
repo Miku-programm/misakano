@@ -169,7 +169,7 @@ bbr_script(){
         if [[ ! $TUN =~ 'in bad state' ]] && [[ ! $TUN =~ '处于错误状态' ]] && [[ ! $TUN =~ 'Die Dateizugriffsnummer ist in schlechter Verfassung' ]]; then
             wget -N --no-check-certificate https://raw.githubusercontents.com/Misaka-blog/tun-script/master/tun.sh && bash tun.sh
         else
-            wget -N --no-check-certificate https://raw.githubusercontents.com/mzz2017/lkl-haproxy/master/lkl-haproxy.sh && bash lkl-haproxy.sh
+            wget -N --no-check-certificate https://raw.githubusercontent.com/mzz2017/lkl-haproxy/refs/heads/master/lkl-haproxy.sh && bash lkl-haproxy.sh
         fi
     else
         red "抱歉，你的VPS虚拟化架构暂时不支持bbr加速脚本"
