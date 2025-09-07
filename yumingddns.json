@@ -1,0 +1,13 @@
+{
+    "dns": "alidns",
+    "id": "LTAI5tRy97xbk6BxhRz2fVR4",
+    "token": "TmbX7BmPtokSrqsnqW1r6X6lnzo6mW",
+    "ipv4": ["rukougcp.中国阀门商城.net"],
+    "index4": "public",
+    "ttl": 1,
+    "cache": true,
+    "log": {
+        "level": "INFO",
+        "format": "%(asctime)s - %(levelname)s - %(message)s"
+    }
+}
