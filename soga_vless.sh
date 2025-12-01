@@ -78,42 +78,25 @@ fi
 print_info "备份原配置文件..."
 cp "$CONF_FILE" "${CONF_FILE}.backup.$(date +%Y%m%d_%H%M%S)"
 
-# 7. 修改配置文件 - 使用完整路径
+# 7. 直接修改或添加配置
 print_info "修改配置文件..."
-if grep -q "^cert_file=" "$CONF_FILE" && grep -q "^key_file=" "$CONF_FILE"; then
-    # 如果已存在配置,直接替换
-    sed -i "s|^cert_file=.*|cert_file=${CERT_PATH}|" "$CONF_FILE"
-    sed -i "s|^key_file=.*|key_file=${KEY_PATH}|" "$CONF_FILE"
-    print_info "配置已更新(完整路径)"
-else
-    # 如果不存在,查找注释行并替换
-    sed -i "/^# 手动证书配置/,/^key_file=/ {
-        s|^cert_file=.*|cert_file=${CERT_PATH}|
-        s|^key_file=.*|key_file=${KEY_PATH}|
-    }" "$CONF_FILE"
-    
-    # 如果上述方法没有成功,尝试直接在文件末尾添加
-    if ! grep -q "cert_file=${CERT_PATH}" "$CONF_FILE"; then
-        print_warning "未找到证书配置项,在文件末尾添加..."
-        echo "" >> "$CONF_FILE"
-        echo "# 手动证书配置" >> "$CONF_FILE"
-        echo "cert_file=${CERT_PATH}" >> "$CONF_FILE"
-        echo "key_file=${KEY_PATH}" >> "$CONF_FILE"
-    fi
-    
-    print_info "配置已添加(完整路径)"
-fi
 
-# 8. 验证配置
-print_info "验证配置..."
-if grep -q "cert_file=${CERT_PATH}" "$CONF_FILE" && grep -q "key_file=${KEY_PATH}" "$CONF_FILE"; then
-    print_info "配置验证成功"
-    echo "  - cert_file=${CERT_PATH}"
-    echo "  - key_file=${KEY_PATH}"
-else
-    print_error "配置验证失败"
-    exit 1
-fi
+# 删除旧的证书配置(如果存在)
+sed -i '/^cert_file=/d' "$CONF_FILE"
+sed -i '/^key_file=/d' "$CONF_FILE"
+
+# 在文件末尾添加新配置
+echo "" >> "$CONF_FILE"
+echo "# 手动证书配置" >> "$CONF_FILE"
+echo "cert_file=${CERT_PATH}" >> "$CONF_FILE"
+echo "key_file=${KEY_PATH}" >> "$CONF_FILE"
+
+print_info "配置已添加"
+
+# 8. 显示配置内容
+print_info "当前证书配置:"
+echo "  cert_file=${CERT_PATH}"
+echo "  key_file=${KEY_PATH}"
 
 # 9. 验证文件存在性
 print_info "验证证书文件..."
@@ -150,24 +133,3 @@ echo "配置文件: ${CONF_FILE}"
 echo "配置备份: ${CONF_FILE}.backup.*"
 echo -e "\n查看服务状态: systemctl status soga"
 echo "查看服务日志: journalctl -u soga -f"
-```
-
-**主要更新:**
-
-1. **完整路径配置**: 证书和密钥现在使用完整的绝对路径 `/etc/soga/bili.cer` 和 `/etc/soga/bili.key`
-
-2. **文件权限设置**: 
-   - 证书文件: 644 (可读)
-   - 密钥文件: 600 (仅root可读,更安全)
-
-3. **增强的配置处理**: 
-   - 如果找不到配置项,会在文件末尾自动添加
-   - 验证时显示实际配置的路径
-
-4. **更详细的输出**: 完成后显示所有相关路径和日志查看命令
-
-**配置文件中的效果:**
-```
-# 手动证书配置
-cert_file=/etc/soga/bili.cer
-key_file=/etc/soga/bili.key
